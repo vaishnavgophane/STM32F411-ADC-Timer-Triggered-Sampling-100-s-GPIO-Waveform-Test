@@ -71,7 +71,9 @@ Optional: connect a **function generator** to PA0 to capture real waveform sampl
 
 PA8 Toggle Output — Expected 10 kHz Square Wave
 
-[Oscilloscope Result]()
+[Oscilloscope Result]
+<br>
+(https://github.com/vaishnavgophane/STM32F411-ADC-Timer-Triggered-Sampling-100-s-GPIO-Waveform-Test/blob/main/IMG_20251205_174415512_HDR_AE.jpg)
 
 --- 
 
