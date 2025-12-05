@@ -59,13 +59,12 @@ Optional: connect a **function generator** to PA0 to capture real waveform sampl
 - Discontinuous & continuous conversion: Disabled
 
 **Timer (TIM2)**
-- TRGO Output: `UPDATE`
+- TRGO Output: `TIM_TRGO_UPDATE`
 
 ---
 
 ## 📌 Code Snippet (ISR Toggle)
 
-```c
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
     if (hadc->Instance == ADC1)
@@ -74,10 +73,10 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
     }
 }
 
---
+---
 
 ## 📈 Oscilloscope ADC Timing Verification
 
-PA8 Toggle Output — Expected 5 kHz Square Wave
+PA8 Toggle Output — Expected 10 kHz Square Wave
 
-![Oscilloscope Result](images/scope_result.png)
+[Oscilloscope Result]()
