@@ -63,21 +63,7 @@ Optional: connect a **function generator** to PA0 to capture real waveform sampl
 
 ---
 
-## 📌 Code Snippet (ISR Toggle)
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
-<br>
-{
-<br>
-    if (hadc->Instance == ADC1)
-    <br>
-    {
-    <br>
-        HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
-        <br>
-    }
-    <br>
-}
 
 ---
 
@@ -86,3 +72,15 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 PA8 Toggle Output — Expected 10 kHz Square Wave
 
 [Oscilloscope Result]()
+
+--- 
+
+## 📌 Code Snippet (ISR Toggle)
+```c
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+    if (hadc->Instance == ADC1)
+    {
+        HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_8);
+    }
+}
