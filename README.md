@@ -5,7 +5,7 @@ Embedded Firmware & IoT Developer
 <br>
 Pune, India.
 
-📫 **Connect:** [Gmail](mr.vaishnavgophane@gmail.com) • [GitHub](https://github.com/vaishnavgophane) • [LinkedIn](https://www.linkedin.com/in/vaishnav-gophane-417686284/)
+📫 **Connect:** [Gmail]( mr.vaishnavgophane@gmail.com ) • [GitHub](https://github.com/vaishnavgophane) • [LinkedIn](https://www.linkedin.com/in/vaishnav-gophane-417686284/)
 
 ---
 # STM32F411 ADC Timer Triggered Sampling (100µs)
@@ -76,6 +76,42 @@ PA8 Toggle Output — Expected 10 kHz Square Wave
 (https://github.com/vaishnavgophane/STM32F411-ADC-Timer-Triggered-Sampling-100-s-GPIO-Waveform-Test/blob/main/IMG_20251205_174415512_HDR_AE.jpg)
 
 --- 
+## 🧮 Timer  Calculations
+
+This project uses Timer 2 to generate periodic triggers for ADC1 sampling at 10 kHz (every 100 µs).
+Timer Clock Source
+
+TIM2 is on APB1 bus
+
+APB1 peripheral clock = 42 MHz
+
+Since APB1 prescaler ≠ 1 → Timer clock doubles:
+
+TIM2 Clock = 42 MHz × 2 = 84 MHz
+
+🔹 Prescaler Calculation (PSC)
+
+We want the timer to increment every 1 µs:
+
+PSC = (Timer Clock / Desired Timer Tick) - 1
+PSC = (84 MHz / 1 MHz) - 1
+PSC = 84 - 1
+PSC = 83
+
+
+✔ Now the timer counter ticks every:
+1 / 1 MHz = 1 µs
+
+🔹 Auto-Reload Register (ARR)
+
+To trigger an event every 100 µs:
+
+Timer Ticks Needed = 100 µs / 1 µs = 100
+ARR = 100 - 1 = 99
+
+✔ Timer generates update event 100 µs repeatedly
+
+---
 
 ## 📌 Code Snippet (ISR Toggle)
 ```c
