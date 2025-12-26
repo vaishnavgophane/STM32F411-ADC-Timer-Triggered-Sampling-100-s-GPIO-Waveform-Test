@@ -12,7 +12,7 @@ Pune, India.
 
 This project demonstrates **precisely timed ADC sampling** using **TIM2 TRGO** as an external trigger source on the **STM32 Nucleo-F411RE**.
 
-A GPIO pin (PA8) toggles every time an ADC conversion completes, generating a **5 kHz square wave** for oscilloscope verification.
+A GPIO pin (PA8) toggles every time an ADC conversion completes, generating a **10 kHz square wave** for oscilloscope verification.
 
 ---
 
